@@ -4,8 +4,10 @@ Add-Type -AssemblyName System.Drawing
 
 function Deploy-Game()
 {
+    $file = $file_textdir.Text
+    # Write-Host $Global:LeagueFile
     $arg = "--locale=" + $locale_dropdown.SelectedItem
-    & $Global:LeagueFile $arg
+    & $file $arg
 }
 
 function Submit-File($file) 
@@ -37,6 +39,8 @@ function Get-Path()
         }
     }
 }
+
+$LeagueFile = Get-Content $env:USERPROFILE\.leaguedir -ErrorAction Ignore
 
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'League of Legends Locale Launcher'
@@ -101,5 +105,5 @@ $submit.Add_Click({
 $form.AcceptButton = $submit
 $form.Controls.Add($submit)
 
-$form.ShowDialog()
+$form.ShowDialog() | Out-Null
 $form.Dispose()
