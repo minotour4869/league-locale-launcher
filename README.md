@@ -1,3 +1,3 @@
 # league-locale-launcher
 
-A simple powershell script to launch League of Legends in different locale, with GUI.
+A simple Powershell script to launch League of Legends in different locale, with GUI.
